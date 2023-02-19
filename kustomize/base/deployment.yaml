@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: yanf
+  labels:
+    app: yanf
+spec:
+  selector:
+    matchLabels:
+      app: yanf
+  replicas: 3
+  template:
+    metadata:
+      labels:
+        app: yanf
+    spec:
+      nodeSelector:
+        nodeCategory: worker
+      containers:
+        - name: yanf
+          image: milsman2/yanf
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 3000
+          livenessProbe:
+            httpGet:
+              path: /
+              port: 3000
+          readinessProbe:
+            httpGet:
+              path: /
+              port: 3000
+          resources:
+            requests:
+              cpu: 100m
+              memory: 128Mi

@@ -1,0 +1,23 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: yanf
+  annotations:
+    cert-manager.io/cluster-issuer: 'prod-issuer-amd64'
+spec:
+  ingressClassName: nginx
+  tls:
+    - hosts:
+        - yanf.kanebroslab.com
+      secretName: yanf-tls-v1
+  rules:
+    - host: kanebroslab.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: yanf
+                port:
+                  number: 80
