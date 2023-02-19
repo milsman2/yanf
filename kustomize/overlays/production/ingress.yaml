@@ -11,7 +11,7 @@ spec:
         - yanf.kanebroslab.com
       secretName: yanf-tls-v1
   rules:
-    - host: kanebroslab.com
+    - host: yanf.kanebroslab.com
       http:
         paths:
           - path: /
