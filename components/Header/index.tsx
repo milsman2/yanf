@@ -3,13 +3,14 @@ import Link from 'next/link';
 
 const Header = (): ReactElement => {
   return (
-    <h1 className="flex justify-between flex-wrap content-center bg-emerald-900 p-4 sticky top-0 z-10">
-      <div className="flex items-center text-white">
-        <span className="font-semibold text-xl tracking-tight">
-          <Link href="/">yanf Next.js Framework</Link>
-        </span>
-      </div>
-    </h1>
+    <header className="bg-emerald-900 p-4 sticky top-0 z-10">
+      <Link
+        href="/"
+        className="flex flex-col flex-1 items-center justify-center text-white font-semibold text-xl tracking-tight"
+      >
+        yanf Next.js Framework
+      </Link>
+    </header>
   );
 };
 
